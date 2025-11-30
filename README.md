@@ -31,8 +31,8 @@ Independent ERC-721 locker contracts are used to secure liquidity positions:
 - Used **exclusively to secure long-term liquidity**
 
 Source:  
-`contracts/lockers/UniswapV3LpNftLocker.sol`  
-`contracts/lockers/QuickSwapLpNftLocker.sol`
+[`contracts/lockers/UniswapV3LpNftLocker.sol`](contracts/UniswapV3LpNftLocker.sol)  
+[`contracts/lockers/QuickSwapLpNftLocker.sol`](contracts/QuickSwapLpNftLocker.sol)
 
 
 ---
@@ -55,4 +55,20 @@ Source:
 - X: https://x.com/StopwarTokenOrg  
 - Discord: https://discord.gg/PktJPn3Unb
 
-> No support via GitHub issues. Official updates are published on the channels above.
+---
+
+### Project Notes
+
+STOPWARTOKEN is deployed without presale, marketing allocations, or external funding.  
+The project operates without centralized roles or incentives.
+
+All mechanisms are fully executed on-chain.  
+Interaction with the token and related contracts requires no trust in any entity, and all actions can be independently verified.
+
+> This repository is published solely for transparency.  
+> It does not solicit investment, engagement, or support.  
+> Any further use or analysis is at the discretion of third parties.
+
+---
+
+_No support via GitHub issues. Official updates are published on the channels above._
