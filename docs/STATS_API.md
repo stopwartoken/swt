@@ -37,7 +37,7 @@ No private keys are exposed or required to consume this endpoint.
     "decimals": 18,
     "deployment_block": 78832159,
     "last_block": 80257018,
-    "last_update_utc": "2026-02-10T17:10:32.310Z"
+    "last_update_utc": "2026-03-27T06:15:21.283Z"
   },
   "market": {
     "price_usd": 0.010329988991519644,
@@ -65,6 +65,9 @@ No private keys are exposed or required to consume this endpoint.
     },
     "pools": {
       "uniswap_v3": {
+        "pool_address": "0x671922175c51ECbeAB90039647348B0bD3Fa5d86",
+        "sqrtPriceX96": "8052477371914388274077",
+        "price_usd": 0.010329988991519644,
         "name": "Uniswap V3",
         "dex": "UniswapV3",
         "liquidity_usdt": 28.03785,
@@ -73,6 +76,9 @@ No private keys are exposed or required to consume this endpoint.
         "positions": [
           {
             "token_id": "2768710",
+            "liquidity_uint128": "17069866424826086",
+            "tickLower": -322379,
+            "tickUpper": -315447,
             "range_min": 0.01,
             "range_max": 0.02,
             "current": true,
@@ -80,6 +86,9 @@ No private keys are exposed or required to consume this endpoint.
           },
           {
             "token_id": "2768799",
+            "liquidity_uint128": "24137742448751016",
+            "tickLower": -315447,
+            "tickUpper": -308514,
             "range_min": 0.02,
             "range_max": 0.04,
             "current": false,
@@ -87,6 +96,9 @@ No private keys are exposed or required to consume this endpoint.
           },
           {
             "token_id": "2768812",
+            "liquidity_uint128": "34136232721556646",
+            "tickLower": -308515,
+            "tickUpper": -301582,
             "range_min": 0.04,
             "range_max": 0.08,
             "current": false,
@@ -94,6 +106,9 @@ No private keys are exposed or required to consume this endpoint.
           },
           {
             "token_id": "2768816",
+            "liquidity_uint128": "48276361672778198",
+            "tickLower": -301583,
+            "tickUpper": -294650,
             "range_min": 0.08,
             "range_max": 0.16,
             "current": false,
@@ -101,6 +116,9 @@ No private keys are exposed or required to consume this endpoint.
           },
           {
             "token_id": "2768826",
+            "liquidity_uint128": "68273705401859862",
+            "tickLower": -294651,
+            "tickUpper": -287718,
             "range_min": 0.16,
             "range_max": 0.32,
             "current": false,
@@ -108,6 +126,9 @@ No private keys are exposed or required to consume this endpoint.
           },
           {
             "token_id": "2768834",
+            "liquidity_uint128": "96566130848957667",
+            "tickLower": -287719,
+            "tickUpper": -280787,
             "range_min": 0.32,
             "range_max": 0.64,
             "current": false,
@@ -115,6 +136,9 @@ No private keys are exposed or required to consume this endpoint.
           },
           {
             "token_id": "2768843",
+            "liquidity_uint128": "136559544242530056",
+            "tickLower": -280788,
+            "tickUpper": -273856,
             "range_min": 0.64,
             "range_max": 1.28,
             "current": false,
@@ -122,6 +146,9 @@ No private keys are exposed or required to consume this endpoint.
           },
           {
             "token_id": "2770043",
+            "liquidity_uint128": "135165206238463325",
+            "tickLower": -273857,
+            "tickUpper": -266924,
             "range_min": 1.28,
             "range_max": 2.56,
             "current": false,
@@ -129,6 +156,9 @@ No private keys are exposed or required to consume this endpoint.
           },
           {
             "token_id": "2770050",
+            "liquidity_uint128": "81937214655257825",
+            "tickLower": -266924,
+            "tickUpper": -259992,
             "range_min": 2.56,
             "range_max": 5.12,
             "current": false,
@@ -136,6 +166,9 @@ No private keys are exposed or required to consume this endpoint.
           },
           {
             "token_id": "2770060",
+            "liquidity_uint128": "115852202761110536",
+            "tickLower": -259994,
+            "tickUpper": -253061,
             "range_min": 5.12,
             "range_max": 10.24,
             "current": false,
@@ -144,6 +177,9 @@ No private keys are exposed or required to consume this endpoint.
         ]
       },
       "quickswap": {
+        "pool_address": "0x73564cC139D2e8e9eA0eCe54f54a3d61AbFfC046",
+        "sqrtPriceX96": "8047414299492437509508",
+        "price_usd": 0.010317002915946205,
         "name": "QuickSwap Algebra",
         "dex": "QuickSwap",
         "liquidity_usdt": 5.409383,
@@ -152,6 +188,9 @@ No private keys are exposed or required to consume this endpoint.
         "positions": [
           {
             "token_id": "177228",
+            "liquidity_uint128": "3402820058435037",
+            "tickLower": -322380,
+            "tickUpper": -315420,
             "range_min": 0.01,
             "range_max": 0.02,
             "current": true,
@@ -159,6 +198,9 @@ No private keys are exposed or required to consume this endpoint.
           },
           {
             "token_id": "177240",
+            "liquidity_uint128": "4769621609786774",
+            "tickLower": -315480,
+            "tickUpper": -308460,
             "range_min": 0.02,
             "range_max": 0.04,
             "current": false,
@@ -166,6 +208,9 @@ No private keys are exposed or required to consume this endpoint.
           },
           {
             "token_id": "177242",
+            "liquidity_uint128": "6803387047818414",
+            "tickLower": -308520,
+            "tickUpper": -301560,
             "range_min": 0.04,
             "range_max": 0.08,
             "current": false,
@@ -173,6 +218,9 @@ No private keys are exposed or required to consume this endpoint.
           },
           {
             "token_id": "177243",
+            "liquidity_uint128": "9537508873352828",
+            "tickLower": -301620,
+            "tickUpper": -294600,
             "range_min": 0.08,
             "range_max": 0.16,
             "current": false,
@@ -180,6 +228,9 @@ No private keys are exposed or required to consume this endpoint.
           },
           {
             "token_id": "177249",
+            "liquidity_uint128": "13604300224629898",
+            "tickLower": -294660,
+            "tickUpper": -287700,
             "range_min": 0.16,
             "range_max": 0.32,
             "current": false,
@@ -187,6 +238,9 @@ No private keys are exposed or required to consume this endpoint.
           },
           {
             "token_id": "177251",
+            "liquidity_uint128": "19071549684913153",
+            "tickLower": -287760,
+            "tickUpper": -280740,
             "range_min": 0.32,
             "range_max": 0.64,
             "current": false,
@@ -194,6 +248,9 @@ No private keys are exposed or required to consume this endpoint.
           },
           {
             "token_id": "177252",
+            "liquidity_uint128": "27203653606803417",
+            "tickLower": -280800,
+            "tickUpper": -273840,
             "range_min": 0.64,
             "range_max": 1.28,
             "current": false,
@@ -201,6 +258,9 @@ No private keys are exposed or required to consume this endpoint.
           },
           {
             "token_id": "177363",
+            "liquidity_uint128": "19068082253654928",
+            "tickLower": -273900,
+            "tickUpper": -266880,
             "range_min": 1.28,
             "range_max": 2.56,
             "current": false,
@@ -208,6 +268,9 @@ No private keys are exposed or required to consume this endpoint.
           },
           {
             "token_id": "177364",
+            "liquidity_uint128": "27198707663740974",
+            "tickLower": -266940,
+            "tickUpper": -259980,
             "range_min": 2.56,
             "range_max": 5.12,
             "current": false,
@@ -215,6 +278,9 @@ No private keys are exposed or required to consume this endpoint.
           },
           {
             "token_id": "177366",
+            "liquidity_uint128": "38130820756843899",
+            "tickLower": -260040,
+            "tickUpper": -253020,
             "range_min": 5.12,
             "range_max": 10.24,
             "current": false,
@@ -296,6 +362,9 @@ Information about each DEX where SWT liquidity is deployed and locked.
 
 Common fields:
 
+- **pool_address** – on-chain address of the liquidity pool
+- **sqrtPriceX96** – raw current pool price state in Q64.96 format
+- **price_usd** – current SWT price in USDT/USD terms derived from this pool
 - **name** – human-readable pool name (e.g., `"Uniswap V3"`, `"QuickSwap Algebra"`)
 - **dex** – short identifier (`"UniswapV3"`, `"QuickSwap"`)
 - **liquidity_usdt** – approximate total active liquidity value for this DEX expressed in USDT (derived from current pool state and tracked LP positions)
@@ -303,6 +372,11 @@ Common fields:
 - **nft_contract** – address of the LP-NFT contract (Uniswap v3 Positions NFT / Algebra NFT)
 - **positions** – an array of tracked LP positions
 
+> `sqrtPriceX96` is the raw pool price value returned by the AMM contract.
+> It is included for transparency and independent verification.
+>
+> `price_usd` is the current SWT price derived from that pool state.
+>
 > `liquidity_usdt` is an approximate real-time valuation based on the current pool state.
 > It reflects the USDT-equivalent liquidity deployed across tracked LP positions.
 > The value may fluctuate as price moves across ranges.
@@ -310,12 +384,15 @@ Common fields:
 Each `positions[]` element:
 
 - **token_id** – LP-NFT tokenId  
+- **liquidity_uint128** – raw liquidity value stored in the LP position
+- **tickLower** – raw lower tick boundary of the LP position
+- **tickUpper** – raw upper tick boundary of the LP position
 - **range_min** – lower bound of the price range (SWT price in USDT, approximate)  
 - **range_max** – upper bound of the price range  
 - **current** – `true` for the position that currently holds active liquidity near market price  
 - **unlock_date_utc**
   - ISO-8601 timestamp for positions that are already locked and have been scanned
-  - `"locked_not_scanned"` for positions that are already locked on-chain but not yet scanned by the monitoring script (because they are outside the current active range)
+  - `"locked_not_scanned"` for positions that are already locked on-chain but not yet scanned by the monitoring script
 
 
 ---
