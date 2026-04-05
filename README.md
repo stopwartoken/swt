@@ -1,7 +1,7 @@
 # STOPWARTOKEN (SWT) — Blockchain for Peace
 
-Transparent humanitarian token on Polygon (POL).
-**0.1% of every transaction** is routed to a dedicated humanitarian multisig.
+Transparent humanitarian token on Polygon (POL).  
+**0.1% of every transaction** is routed to a dedicated humanitarian multisig.  
 All flows are verifiable on-chain.
 
 ---
@@ -14,6 +14,13 @@ All flows are verifiable on-chain.
 - **Compiler:** Solidity 0.8.24
 
 Source: [`contracts/STOPWARTOKEN.sol`](contracts/STOPWARTOKEN.sol)
+
+---
+
+## Deployment
+
+- Deployment details: [`DEPLOYMENT.md`](DEPLOYMENT.md)
+- Deployment transaction and parameters are publicly verifiable on-chain
 
 ---
 
@@ -67,6 +74,9 @@ Format and verification details are described in [`docs/STATS_API.md`](docs/STAT
 
 > The API is read-only and provided purely for convenience. On-chain data remains the source of truth.
 
+The same data is visualized on the public website:  
+https://stopwartoken.org
+
 ---
 
 ## Governance (short)
@@ -89,6 +99,18 @@ On-chain code and public security documents remain the sole source of truth.
 
 ---
 
+## How to interact
+
+For a practical walkthrough of how to use SWT on-chain:
+
+- Website guide: https://stopwartoken.org/how-to-buy.html  
+- Technical guide: [`HOW-TO-BUY.md`](HOW-TO-BUY.md)
+
+The website provides a user interface and real-time context.  
+This repository provides verification and underlying documentation.
+
+---
+
 ## Inspiration
 
 The idea behind STOPWARTOKEN was inspired by real-world acts of personal responsibility and humanitarian commitment.
@@ -102,8 +124,18 @@ SWT explores whether similar principles of **transparent, verifiable aid** can b
 ## Official Links
 
 - Website: https://stopwartoken.org
-- X: https://x.com/StopwarTokenOrg
+- X: https://x.com/stopwartokenorg
 - Discord: https://discord.gg/PktJPn3Unb
+
+---
+
+## Usage model
+
+- GitHub → verification and documentation  
+- Website → interaction and execution  
+- On-chain → source of truth  
+
+All three layers are designed to be independently verifiable.
 
 ---
 
@@ -113,7 +145,7 @@ STOPWARTOKEN is deployed without presale, marketing allocations, or external fun
 
 All core mechanisms are executed on-chain and can be independently verified.
 
-> This repository is published for transparency and research purposes only.
+> This repository is published for transparency and research purposes only.  
 > It does not solicit investment or participation.
 
 ---
