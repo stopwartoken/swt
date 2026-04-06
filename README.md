@@ -139,6 +139,15 @@ All three layers are designed to be independently verifiable.
 
 ---
 
+## Why participation matters
+
+A transparent system is only fully validated when it is used.
+
+SWT is designed as a verifiable on-chain mechanism, but its behavior becomes meaningful through real interactions.
+Even small transactions contribute to validating how the system operates in practice.
+
+---
+
 ### Project Notes
 
 STOPWARTOKEN is deployed without presale, marketing allocations, or external funding.
