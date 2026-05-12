@@ -79,11 +79,11 @@ The exact execution route will be documented from the transaction data.
 
 ## Live status
 
-Last updated: 2026-05-12 09:30 UTC
+Last updated: 2026-05-12 11:30 UTC
 
 | Field | Status |
 |---|---|
-| Test phase | Test started — no POL → SWT swap activity yet |
+| Test phase | First small-swap series completed |
 | Network | Polygon |
 | Input asset | POL |
 | Readable price reference | USDT/SWT pools |
@@ -93,8 +93,8 @@ Last updated: 2026-05-12 09:30 UTC
 | Creator/admin wallet | [`0xBc122bE1b62f0B8718C9dC9918ce2cd7C160BA07`](https://polygonscan.com/address/0xBc122bE1b62f0B8718C9dC9918ce2cd7C160BA07) |
 | Funding tx | [0x82d222a13addfee7b157fe66c76307c6c5c989f9bc808ccdde8f0164ffa0b91d](https://polygonscan.com/tx/0x82d222a13addfee7b157fe66c76307c6c5c989f9bc808ccdde8f0164ffa0b91d) |
 | Public test wallet funding amount | 5,000 POL |
-| First POL → SWT swap tx | TBA |
-| Current accumulated SWT fee | 16.88 / 50 SWT |
+| First POL → SWT swap tx | [first swap tx](https://polygonscan.com/tx/0xd4700f018cddfca2281d5c3f4ea7e2ce45facf16419e4fb0622a47a20918fd54) |
+| Current accumulated SWT fee | 22.59 / 50 SWT |
 | Trigger threshold | 50 SWT |
 | Threshold reached | No |
 | `triggerCharity()` status | Not executed |
@@ -198,7 +198,9 @@ The purpose is to document the fee path under real DEX conditions.
 | 2026-05-11 | SWT team | Rules published | This file / GitHub commit | Framework disclosed |
 | 2026-05-11 | Creator/admin wallet | Funded test wallet | [funding tx](https://polygonscan.com/tx/0x82d222a13addfee7b157fe66c76307c6c5c989f9bc808ccdde8f0164ffa0b91d) | 5,000 POL funded |
 | 2026-05-12 | SWT team | Test start announced | This file / Discord / X | Public mechanics test opened; no POL → SWT swap activity yet |
-| TBA | Test wallet | First POL → SWT swap | TBA | TBA |
+| 2026-05-12 | Test wallet | First POL → SWT swap | [swap 1](https://polygonscan.com/tx/0xd4700f018cddfca2281d5c3f4ea7e2ce45facf16419e4fb0622a47a20918fd54) | First controlled test swap executed |
+| 2026-05-12 | Test wallet | Additional POL → SWT swap | [swap 2](https://polygonscan.com/tx/0x427856ae082b7022ce3cef8dd8d49bbe66448ffc9e642e81cb3d18739ceedbd7) | Controlled test swap executed |
+| 2026-05-12 | Test wallet | Additional POL → SWT swap | [swap 3](0xa6b780c5657ea5e49481ba26eef27a6edbd09dae78ebfc94b4bc8818840fc2ec) | Controlled test swap executed |
 | TBA | Test wallet | Additional POL → SWT swaps | TBA | TBA |
 | TBA | SWT contract | Threshold reached | TBA | 50 SWT fee threshold |
 | TBA | TBA | `triggerCharity()` | TBA | TBA |
@@ -222,9 +224,17 @@ No test swap activity has started yet.
 
 The public mechanics test has started.
 
-At this stage, no POL → SWT test swap activity has been executed from the disclosed SWT Public Test Wallet.
+The first controlled POL → SWT small-swap series was executed from the disclosed SWT Public Test Wallet.
 
-The test wallet, funding source, and funding transaction are already disclosed. The next update will document the first controlled POL → SWT swap activity once executed.
+Transactions:
+
+- First swap: [swap 1](https://polygonscan.com/tx/0xd4700f018cddfca2281d5c3f4ea7e2ce45facf16419e4fb0622a47a20918fd54)
+- Additional swap: [swap 2](https://polygonscan.com/tx/0x427856ae082b7022ce3cef8dd8d49bbe66448ffc9e642e81cb3d18739ceedbd7)
+- Additional swap: [swap 3](https://polygonscan.com/tx/0xa6b780c5657ea5e49481ba26eef27a6edbd09dae78ebfc94b4bc8818840fc2ec)
+
+Current accumulated SWT fee after this update: 22.59 / 50 SWT.
+
+The trigger threshold has not been reached yet. `triggerCharity()` has not been executed.
 
 ### 2026-05-13 — Test update
 
