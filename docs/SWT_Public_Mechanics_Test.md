@@ -79,11 +79,11 @@ The exact execution route will be documented from the transaction data.
 
 ## Live status
 
-Last updated: 2026-05-11 09:30 UTC
+Last updated: 2026-05-12 09:30 UTC
 
 | Field | Status |
 |---|---|
-| Test phase | Rules published |
+| Test phase | Test started — no POL → SWT swap activity yet |
 | Network | Polygon |
 | Input asset | POL |
 | Readable price reference | USDT/SWT pools |
@@ -197,6 +197,7 @@ The purpose is to document the fee path under real DEX conditions.
 |---|---|---|---|---|
 | 2026-05-11 | SWT team | Rules published | This file / GitHub commit | Framework disclosed |
 | 2026-05-11 | Creator/admin wallet | Funded test wallet | [funding tx](https://polygonscan.com/tx/0x82d222a13addfee7b157fe66c76307c6c5c989f9bc808ccdde8f0164ffa0b91d) | 5,000 POL funded |
+| 2026-05-12 | SWT team | Test start announced | This file / Discord / X | Public mechanics test opened; no POL → SWT swap activity yet |
 | TBA | Test wallet | First POL → SWT swap | TBA | TBA |
 | TBA | Test wallet | Additional POL → SWT swaps | TBA | TBA |
 | TBA | SWT contract | Threshold reached | TBA | 50 SWT fee threshold |
@@ -219,7 +220,11 @@ No test swap activity has started yet.
 
 ### 2026-05-12 — Test start
 
-TBA
+The public mechanics test has started.
+
+At this stage, no POL → SWT test swap activity has been executed from the disclosed SWT Public Test Wallet.
+
+The test wallet, funding source, and funding transaction are already disclosed. The next update will document the first controlled POL → SWT swap activity once executed.
 
 ### 2026-05-13 — Test update
 
