@@ -79,11 +79,11 @@ The exact execution route will be documented from the transaction data.
 
 ## Live status
 
-Last updated: 2026-05-13 09:30 UTC
+Last updated: 2026-05-13 13:30 UTC
 
 | Field | Status |
 |---|---|
-| Test phase | MetaMask USDT → SWT route comparison completed |
+| Test phase | Fourth small-swap series completed; MetaMask POL route repeated |
 | Network | Polygon |
 | Input assets used | POL / USDT |
 | Readable price reference | USDT/SWT pools |
@@ -94,9 +94,9 @@ Last updated: 2026-05-13 09:30 UTC
 | Funding tx | [0x82d222a13addfee7b157fe66c76307c6c5c989f9bc808ccdde8f0164ffa0b91d](https://polygonscan.com/tx/0x82d222a13addfee7b157fe66c76307c6c5c989f9bc808ccdde8f0164ffa0b91d) |
 | Public test wallet funding amount | 5,000 POL |
 | First POL → SWT swap tx | [first swap tx](https://polygonscan.com/tx/0xd4700f018cddfca2281d5c3f4ea7e2ce45facf16419e4fb0622a47a20918fd54) |
-| Latest SWT swap tx | [swap 9](https://polygonscan.com/tx/0xfe4d2b652816f6d720ce96010c62a1cd10d8c3daee63b7ecf5a8d8d3f0889a17) |
+| Latest SWT swap tx | [swap 12](https://polygonscan.com/tx/0x4ce62292d695f46f84c65cc880209d7ad5bc9d7cd651a6242bec257f0832fe8b) |
 | POL → USDT preparation tx | [prep tx](https://polygonscan.com/tx/0xc4bbc51d67f2abe1063345ce628f284101a6be95340664ffb75e01a5163eab9e) |
-| Current accumulated SWT fee | 27.95 / 50 SWT |
+| Current accumulated SWT fee | 33.10 / 50 SWT |
 | Trigger threshold | 50 SWT |
 | Threshold reached | No |
 | `triggerCharity()` status | Not executed |
@@ -106,7 +106,7 @@ Last updated: 2026-05-13 09:30 UTC
 | Founder top-up | Planned / reported separately |
 | First charity transfer test | Planned |
 | Recipient | TBA |
-| Route comparison note | MetaMask-routed POL swaps increased SWT fee accumulation; direct Uniswap pool-output swaps did not; MetaMask USDT route documented separately |
+| Latest series measurement | MetaMask POL → SWT repeat: 27.95 → 33.10 fee accumulated (+5.15 SWT) |
 | Cross-pool observation | Direct Uniswap-route swaps widened the visible pool spread; later external market activity reduced it |
 | Final report status | Pending |
 
@@ -214,6 +214,9 @@ The purpose is to document the fee path under real DEX conditions.
 | 2026-05-13 | Test wallet | MetaMask USDT → SWT route comparison | [swap 7](https://polygonscan.com/tx/0x3466e4be7e892cf442369d20a17b8e7b2735e768ddaea5e0269a1705a1c81614) | Tested USDT input route behavior |
 | 2026-05-13 | Test wallet | MetaMask USDT → SWT route comparison | [swap 8](https://polygonscan.com/tx/0xeb2e86dfa1bf8aa271aac73ae940b9da150359933727b700c07966264334cb5c) | Controlled USDT → SWT route comparison swap |
 | 2026-05-13 | Test wallet | MetaMask USDT → SWT route comparison | [swap 9](https://polygonscan.com/tx/0xfe4d2b652816f6d720ce96010c62a1cd10d8c3daee63b7ecf5a8d8d3f0889a17) | USDT → SWT route comparison series completed |
+| 2026-05-13 | Test wallet | MetaMask POL → SWT route repeat | [swap 10](https://polygonscan.com/tx/0xa10794cd7cb1f79fa4cce3922e88285f30bd0187df802559bb2ac860d0e6ce9e) | Repeated routed POL input after route-comparison results |
+| 2026-05-13 | Test wallet | MetaMask POL → SWT route repeat | [swap 11](https://polygonscan.com/tx/0xa1c33a88997fceafd1c864d6e5903d4b358c3004c50f62c75d03172be96bc3df) | Controlled routed POL → SWT test swap |
+| 2026-05-13 | Test wallet | MetaMask POL → SWT route repeat | [swap 12](https://polygonscan.com/tx/0x4ce62292d695f46f84c65cc880209d7ad5bc9d7cd651a6242bec257f0832fe8b) | Fourth small-swap series completed |
 | TBA | Test wallet | Additional SWT route-comparison swaps, if any | TBA | TBA |
 | TBA | SWT contract | Threshold reached | TBA | 50 SWT fee threshold |
 | TBA | TBA | `triggerCharity()` | TBA | TBA |
@@ -327,6 +330,30 @@ Route observation:
 The MetaMask USDT → SWT route produced a fee delta close to two taxable SWT transfers.
 
 This suggests that the resulting SWT output path again included more than one non-exempt SWT transfer before final receipt.
+
+Fourth small-swap series — MetaMask POL input repeat:
+
+A fourth controlled small-swap series was executed from the disclosed SWT Public Test Wallet.
+
+This series repeated the MetaMask POL → SWT route after the earlier route-comparison observations.
+
+Transactions:
+
+- Swap 10: [swap 10](https://polygonscan.com/tx/0xa10794cd7cb1f79fa4cce3922e88285f30bd0187df802559bb2ac860d0e6ce9e)
+- Swap 11: [swap 11](https://polygonscan.com/tx/0xa1c33a88997fceafd1c864d6e5903d4b358c3004c50f62c75d03172be96bc3df)
+- Swap 12: [swap 12](https://polygonscan.com/tx/0x4ce62292d695f46f84c65cc880209d7ad5bc9d7cd651a6242bec257f0832fe8b)
+
+Series measurements:
+
+- Accumulated SWT fee before series: 27.95 / 50 SWT
+- Accumulated SWT fee after series: 33.10 / 50 SWT
+- Observed fee delta: +5.15 SWT
+
+Route observation:
+
+The fourth series produced additional SWT fee accumulation consistent with the earlier MetaMask-routed behavior.
+
+This further supports the current route observation: SWT fee accumulation depends on the actual SWT transfer path and whether transfers pass through non-exempt intermediate addresses before final receipt.
 
 The trigger threshold has not been reached yet. `triggerCharity()` has not been executed.
 
