@@ -79,11 +79,11 @@ The exact execution route will be documented from the transaction data.
 
 ## Live status
 
-Last updated: 2026-05-14 11:30 UTC
+Last updated: 2026-05-14 14:20 UTC
 
 | Field | Status |
 |---|---|
-| Test phase | Seventh small-swap series completed; threshold not reached |
+| Test phase | Eighth small-swap series completed; threshold reached |
 | Network | Polygon |
 | Input assets used | POL / USDT |
 | Readable price reference | USDT/SWT pools |
@@ -94,20 +94,22 @@ Last updated: 2026-05-14 11:30 UTC
 | Funding tx | [0x82d222a13addfee7b157fe66c76307c6c5c989f9bc808ccdde8f0164ffa0b91d](https://polygonscan.com/tx/0x82d222a13addfee7b157fe66c76307c6c5c989f9bc808ccdde8f0164ffa0b91d) |
 | Public test wallet funding amount | 5,000 POL |
 | First POL → SWT swap tx | [first swap tx](https://polygonscan.com/tx/0xd4700f018cddfca2281d5c3f4ea7e2ce45facf16419e4fb0622a47a20918fd54) |
-| Latest SWT swap tx | [swap 21](https://polygonscan.com/tx/0xd07c89aee6fc143e710a6578831c91ef261b5bfb5f712a55b5ba2bfb8a3592e0) |
-| Current accumulated SWT fee | 47.25 / 50 SWT |
+| Latest SWT swap tx | [swap 21](https://polygonscan.com/tx/0x5ba54538d6789e2214da46aec74b98a774472730d78407402775dab35d000d9a) |
+| Current accumulated SWT fee | 51.68 / 50 SWT |
 | Trigger threshold | 50 SWT |
-| Threshold reached | No |
-| `triggerCharity()` status | Not executed |
+| Threshold reached | Yes |
+| `triggerCharity()` status | Not executed yet; permissionless trigger window opened |
+| Public trigger window | Open |
+| Threshold tx | [THRESHOLD_SWAP](https://polygonscan.com/tx/0xbf10be180605e1d68fbfd4ab4c4cd59b103ece809003270516edcfd9029c0aea) |
 | Trigger tx | TBA |
 | USDT held on SWT contract after trigger | TBA |
 | Protocol-generated USDT | TBA |
 | Founder top-up | Planned / reported separately |
 | First charity transfer test | Planned |
 | Recipient | TBA |
-| Route comparison note | SWT fee behavior depends on actual ERC-20 transfer path; transfers involving recognized SWT/USDT pools are fee-exempt, while non-exempt intermediate SWT transfers can accumulate fee |
 | Cross-pool observation | External market-driven pool re-alignment was observed during the test window |
-| Latest series measurement | MetaMask POL → SWT repeat: 42.74 → 47.25 SWT fee accumulated (+4.51 SWT) |
+| Route comparison note | SWT fee behavior depends on actual ERC-20 transfer path; transfers involving recognized SWT/USDT pools are fee-exempt, while non-exempt intermediate SWT transfers can accumulate fee |
+| Latest series measurement | MetaMask POL → SWT repeat: 47.25 → 51.68 SWT fee accumulated (+4.43 SWT) |
 | Final report status | Pending |
 
 ---
@@ -227,14 +229,18 @@ The purpose is to document the fee path under real DEX conditions.
 | 2026-05-14 | Test wallet | MetaMask POL → SWT route repeat | [swap 19](https://polygonscan.com/tx/0x3226097ffcdb0716932e7070262e1627fba2028c407954ee7b460d4488833dab) | Seventh small-swap series started; routed POL input repeated |
 | 2026-05-14 | Test wallet | MetaMask POL → SWT route repeat | [swap 20](https://polygonscan.com/tx/0x889eb8872f4f114693c566912621d091bb1cb3d395786629d71710110d8cc651) | Controlled routed POL → SWT test swap |
 | 2026-05-14 | Test wallet | MetaMask POL → SWT route repeat | [swap 21](https://polygonscan.com/tx/0xd07c89aee6fc143e710a6578831c91ef261b5bfb5f712a55b5ba2bfb8a3592e0) | Seventh small-swap series completed; threshold not reached |
-| TBA | Test wallet | Additional SWT route-comparison swaps, if any | TBA | TBA |
-| TBA | SWT contract | Threshold reached | TBA | 50 SWT fee threshold |
+| 2026-05-14 | Test wallet | MetaMask POL → SWT route repeat | [swap 22](https://polygonscan.com/tx/0x85e42f455c3b8fce334a84248832d765d121d5a61efa420585ef09bc1e4769fb) | Eighth small-swap series started; routed POL input repeated |
+| 2026-05-14 | Test wallet | MetaMask POL → SWT route repeat | [swap 23](https://polygonscan.com/tx/0xbf10be180605e1d68fbfd4ab4c4cd59b103ece809003270516edcfd9029c0aea) | Controlled routed POL → SWT test swap |
+| 2026-05-14 | Test wallet | MetaMask POL → SWT route repeat | [swap 24](https://polygonscan.com/tx/0x5ba54538d6789e2214da46aec74b98a774472730d78407402775dab35d000d9a) | Eighth small-swap series completed; threshold reached |
+| 2026-05-14 | SWT contract | Threshold reached | [THRESHOLD_SWAP](https://polygonscan.com/tx/0xbf10be180605e1d68fbfd4ab4c4cd59b103ece809003270516edcfd9029c0aea) | 50 SWT fee threshold reached; public trigger window opened |
 | TBA | TBA | `triggerCharity()` | TBA | TBA |
 | TBA | SWT contract | USDT received after trigger | TBA | TBA |
 | TBA | Test wallet | Position movement, if any | TBA | TBA |
 | TBA | Creator/admin wallet | Founder top-up, if used | TBA | Reported separately |
 | TBA | SWT contract / CharityAdmin | First charity transfer test | TBA | TBA |
 | TBA | Recipient / donation platform | Receipt or public confirmation, if available | TBA | TBA |
+| TBA | Test wallet | Additional SWT route-comparison swaps, if any | TBA | TBA |
+| TBA | SWT contract | Threshold reached | TBA | 50 SWT fee threshold |
 
 ---
 
@@ -453,7 +459,43 @@ The seventh series continued to show SWT fee accumulation under routed MetaMask 
 
 The working observation remains that SWT fee behavior depends on the actual ERC-20 `Transfer(from, to)` path. Transfers involving recognized SWT/USDT pools are fee-exempt under the contract logic, while transfers through non-exempt intermediate addresses can create fee accumulation.
 
-The trigger threshold has not been reached yet. `triggerCharity()` has not been executed.
+Eighth small-swap series — MetaMask POL input repeat and threshold reached:
+
+An eighth controlled small-swap series was executed from the disclosed SWT Public Test Wallet.
+
+This series continued the repeated MetaMask POL → SWT routed execution path used in earlier comparison series.
+
+Transactions:
+
+- Swap 22: [swap 22](https://polygonscan.com/tx/0x85e42f455c3b8fce334a84248832d765d121d5a61efa420585ef09bc1e4769fb)
+- Swap 23: [swap 23](https://polygonscan.com/tx/0xbf10be180605e1d68fbfd4ab4c4cd59b103ece809003270516edcfd9029c0aea)
+- Swap 24: [swap 24](https://polygonscan.com/tx/0x5ba54538d6789e2214da46aec74b98a774472730d78407402775dab35d000d9a)
+
+Series measurements:
+
+- Accumulated SWT fee before series: 47.25 / 50 SWT
+- Accumulated SWT fee after series: 51.68 / 50 SWT
+- Observed fee delta: +4.43 SWT
+
+Threshold state:
+
+The 50 SWT trigger threshold was reached during this series.
+
+- Threshold tx: [THRESHOLD_SWAP](https://polygonscan.com/tx/0xbf10be180605e1d68fbfd4ab4c4cd59b103ece809003270516edcfd9029c0aea)
+- Public trigger window: opened
+- `triggerCharity()` status: not executed yet
+- Trigger tx: TBA
+- USDT held on SWT contract after trigger: TBA
+
+Route observation:
+
+The eighth series continued to show SWT fee accumulation under routed MetaMask execution.
+
+Across the observed series, MetaMask-routed POL and USDT swaps repeatedly produced fee accumulation, while direct Uniswap pool-output swaps produced no additional SWT fee accumulation.
+
+The working observation remains that SWT fee behavior depends on the actual ERC-20 `Transfer(from, to)` path. Transfers involving recognized SWT/USDT pools are fee-exempt under the contract logic, while transfers through non-exempt intermediate addresses can create fee accumulation.
+
+The next test phase is the permissionless trigger observation window. If an external wallet calls `triggerCharity()`, the transaction will be documented. If no external trigger occurs during the observation window, SWT may complete the mechanics test from a disclosed wallet.
 
 ### 2026-05-15 — Trigger / completion update
 
@@ -484,6 +526,7 @@ Series measurement summary:
 | 5 | MetaMask POL → SWT routed input repeat | 33.10 SWT | 38.05 SWT | +4.95 SWT |
 | 6 | MetaMask POL → SWT routed input repeat | 38.05 SWT | 42.74 SWT | +4.69 SWT |
 | 7 | MetaMask POL → SWT routed input repeat | 42.74 SWT | 47.25 SWT | +4.51 SWT |
+| 8 | MetaMask POL → SWT routed input repeat | 47.25 SWT | 51.68 SWT | +4.43 SWT |
 
 Expected final summary fields:
 
@@ -493,10 +536,10 @@ Expected final summary fields:
 - Funding transaction documented: `0x82d222a13addfee7b157fe66c76307c6c5c989f9bc808ccdde8f0164ffa0b91d`
 - Public test wallet funding amount: 5,000 POL
 - POL → SWT execution path documented: TBA
-- Swap activity documented: TBA
-- SWT fee accumulation observed: TBA
-- 50 SWT threshold reached: TBA
-- `triggerCharity()` executed: TBA
+- Swap activity documented: Yes — 24 controlled SWT swaps + 1 POL → USDT preparation tx
+- SWT fee accumulation observed: Yes
+- 50 SWT threshold reached: Yes
+- `triggerCharity()` executed: No / pending
 - Trigger caller: TBA
 - Trigger tx: TBA
 - USDT held on SWT contract after trigger: TBA
