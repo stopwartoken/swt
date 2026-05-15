@@ -79,11 +79,11 @@ The exact execution route will be documented from the transaction data.
 
 ## Live status
 
-Last updated: 2026-05-14 14:20 UTC
+Last updated: 2026-05-15 18:00 UTC
 
 | Field | Status |
 |---|---|
-| Test phase | Eighth small-swap series completed; threshold reached |
+| Test phase | Trigger step completed |
 | Network | Polygon |
 | Input assets used | POL / USDT |
 | Readable price reference | USDT/SWT pools |
@@ -94,16 +94,17 @@ Last updated: 2026-05-14 14:20 UTC
 | Funding tx | [0x82d222a13addfee7b157fe66c76307c6c5c989f9bc808ccdde8f0164ffa0b91d](https://polygonscan.com/tx/0x82d222a13addfee7b157fe66c76307c6c5c989f9bc808ccdde8f0164ffa0b91d) |
 | Public test wallet funding amount | 5,000 POL |
 | First POL → SWT swap tx | [first swap tx](https://polygonscan.com/tx/0xd4700f018cddfca2281d5c3f4ea7e2ce45facf16419e4fb0622a47a20918fd54) |
-| Latest SWT swap tx | [swap 21](https://polygonscan.com/tx/0x5ba54538d6789e2214da46aec74b98a774472730d78407402775dab35d000d9a) |
-| Current accumulated SWT fee | 51.68 / 50 SWT |
+| Latest SWT swap tx | [swap 24](https://polygonscan.com/tx/0x5ba54538d6789e2214da46aec74b98a774472730d78407402775dab35d000d9a) |
+| Current accumulated SWT fee | 0.00 / 50 SWT |
 | Trigger threshold | 50 SWT |
-| Threshold reached | Yes |
-| `triggerCharity()` status | Not executed yet; permissionless trigger window opened |
-| Public trigger window | Open |
+| Threshold reached | No |
+| `triggerCharity()` status | Executed |
+| Public trigger window | Closed for this test cycle after team trigger execution |
 | Threshold tx | [THRESHOLD_SWAP](https://polygonscan.com/tx/0xbf10be180605e1d68fbfd4ab4c4cd59b103ece809003270516edcfd9029c0aea) |
-| Trigger tx | TBA |
-| USDT held on SWT contract after trigger | TBA |
-| Protocol-generated USDT | TBA |
+| Trigger caller | Disclosed SWT Public Test Wallet |
+| Trigger tx | [trigger tx](https://polygonscan.com/tx/0xf1a218b773c8cab739f121d61857989b9eb756205314310ca9fe280cc56e2371) |
+| USDT held on SWT contract after trigger | 0.66 USDT |
+| Protocol-generated USDT | 0.66 USDT |
 | Founder top-up | Planned / reported separately |
 | First charity transfer test | Planned |
 | Recipient | TBA |
@@ -233,12 +234,12 @@ The purpose is to document the fee path under real DEX conditions.
 | 2026-05-14 | Test wallet | MetaMask POL → SWT route repeat | [swap 23](https://polygonscan.com/tx/0xbf10be180605e1d68fbfd4ab4c4cd59b103ece809003270516edcfd9029c0aea) | Controlled routed POL → SWT test swap |
 | 2026-05-14 | Test wallet | MetaMask POL → SWT route repeat | [swap 24](https://polygonscan.com/tx/0x5ba54538d6789e2214da46aec74b98a774472730d78407402775dab35d000d9a) | Eighth small-swap series completed; threshold reached |
 | 2026-05-14 | SWT contract | Threshold reached | [THRESHOLD_SWAP](https://polygonscan.com/tx/0xbf10be180605e1d68fbfd4ab4c4cd59b103ece809003270516edcfd9029c0aea) | 50 SWT fee threshold reached; public trigger window opened |
-| TBA | TBA | `triggerCharity()` | TBA | TBA |
-| TBA | SWT contract | USDT received after trigger | TBA | TBA |
-| TBA | Test wallet | Position movement, if any | TBA | TBA |
-| TBA | Creator/admin wallet | Founder top-up, if used | TBA | Reported separately |
+| 2026-05-15 | Test wallet | `triggerCharity()` | [trigger tx](https://polygonscan.com/tx/0xf1a218b773c8cab739f121d61857989b9eb756205314310ca9fe280cc56e2371) | No external trigger occurred during the observation window; SWT completed the trigger step from the disclosed test wallet |
+| 2026-05-15 | SWT contract | USDT received after trigger | [trigger tx](https://polygonscan.com/tx/0xf1a218b773c8cab739f121d61857989b9eb756205314310ca9fe280cc56e2371) | Protocol-generated USDT visible on contract: 0.66 USDT |
+| TBA | Creator/admin wallet | Founder top-up, if used | TBA | To be reported separately from protocol-generated USDT |
 | TBA | SWT contract / CharityAdmin | First charity transfer test | TBA | TBA |
 | TBA | Recipient / donation platform | Receipt or public confirmation, if available | TBA | TBA |
+| TBA | Test wallet | Position movement, if any | TBA | TBA |
 | TBA | Test wallet | Additional SWT route-comparison swaps, if any | TBA | TBA |
 | TBA | SWT contract | Threshold reached | TBA | 50 SWT fee threshold |
 
@@ -497,9 +498,41 @@ The working observation remains that SWT fee behavior depends on the actual ERC-
 
 The next test phase is the permissionless trigger observation window. If an external wallet calls `triggerCharity()`, the transaction will be documented. If no external trigger occurs during the observation window, SWT may complete the mechanics test from a disclosed wallet.
 
-### 2026-05-15 — Trigger / completion update
+### 2026-05-15 — Trigger execution
 
-TBA
+After the 50 SWT trigger threshold was reached, the public trigger window remained open for external execution.
+
+No external trigger was observed during the public observation window.
+
+SWT therefore completed the trigger step from the disclosed SWT Public Test Wallet.
+
+Trigger transaction:
+
+- `triggerCharity()`: [trigger tx](https://polygonscan.com/tx/0xf1a218b773c8cab739f121d61857989b9eb756205314310ca9fe280cc56e2371)
+
+Post-trigger state:
+
+- Trigger caller: disclosed SWT Public Test Wallet
+- SWT accumulated fee before trigger window: 51.68 / 50 SWT
+- Current accumulated SWT fee after trigger: 0.00 / 50 SWT
+- USDT visible on SWT contract after trigger: 0.66 USDT
+- Caller reward: 5 SWT
+- Founder-funded top-up: not included in protocol-generated amount
+- Charity transfer: not executed yet / TBA
+
+Observation:
+
+The public mechanics path was completed:
+
+1. controlled swap activity;
+2. SWT fee accumulation;
+3. 50 SWT threshold reached;
+4. public trigger window opened;
+5. no external trigger observed;
+6. `triggerCharity()` executed from the disclosed test wallet;
+7. protocol-generated USDT became visible on-chain.
+
+Any founder-funded top-up or later charity transfer will be documented separately. No top-up amount will be presented as protocol-generated donation output.
 
 ### 2026-05-16 to 2026-05-17 — Buffer and verification
 
