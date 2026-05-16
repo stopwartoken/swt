@@ -79,14 +79,7 @@ The exact execution route will be documented from the transaction data.
 
 ## Live status
 
-Last updated: 2026-05-16 09:00 UTC
-
-| Test phase | Initial mechanics test completed; post-test position unwind / route observation active |
-| `triggerCharity()` status | Executed on 2026-05-15 |
-
-
-
-
+Last updated: 2026-05-16 18:00 UTC
 
 | Field | Status |
 |---|---|
@@ -102,7 +95,7 @@ Last updated: 2026-05-16 09:00 UTC
 | Public test wallet funding amount | 5,000 POL |
 | First POL → SWT swap tx | [first swap tx](https://polygonscan.com/tx/0xd4700f018cddfca2281d5c3f4ea7e2ce45facf16419e4fb0622a47a20918fd54) |
 | Latest SWT swap tx | [swap 24](https://polygonscan.com/tx/0x5ba54538d6789e2214da46aec74b98a774472730d78407402775dab35d000d9a) |
-| Post-trigger accumulated SWT fee | 2.37 / 50 SWT |
+| Post-trigger accumulated SWT fee | 8.37 / 50 SWT |
 | Trigger threshold | 50 SWT |
 | Next trigger threshold reached | No |
 | `triggerCharity()` status | Executed on 2026-05-15 |
@@ -112,8 +105,8 @@ Last updated: 2026-05-16 09:00 UTC
 | Trigger tx | [trigger tx](https://polygonscan.com/tx/0xf1a218b773c8cab739f121d61857989b9eb756205314310ca9fe280cc56e2371) |
 | USDT held on SWT contract after trigger | 0.66 USDT |
 | Protocol-generated USDT on SWT contract | 0.658925 USDT0 |
-| Post-test unwind status | Started |
-| Latest unwind tx | [Uniswap sell tx](https://polygonscan.com/tx/0x3cb4f175e83594f19fef20ec7df57170eeadadc84ca328838298dbe00decc4b2) |
+| Post-test unwind status | Active |
+| Latest unwind tx | [OKX sell tx](https://polygonscan.com/tx/0xa23b640502396ae5ce4627ae4af976dfe502fdf612b5b4eedfb3f39f0382beaa) |
 | External route activity observed | Yes — arbitrage observed after sell-side checks |
 | Founder-funded top-up | TBA / not included |
 | First charity transfer test | TBA |
@@ -247,6 +240,10 @@ The purpose is to document the fee path under real DEX conditions.
 | 2026-05-16 | External route / arbitrage | External arbitrage after OKX route | [tx](https://polygonscan.com/tx/0x48dcad5b55c31870b2a733b5fe6b39319aa99a24b41218ed241d96f0e8b42a57) | External pool-balancing activity observed; not initiated by SWT test wallet |
 | 2026-05-16 | Test wallet | Post-test unwind — Uniswap route SWT → USDT0 | [tx](https://polygonscan.com/tx/0x3cb4f175e83594f19fef20ec7df57170eeadadc84ca328838298dbe00decc4b2) | 2,000 SWT direct sell; 24.604634 USDT0 received; no direct SWT fee observed |
 | 2026-05-16 | External route / arbitrage | External arbitrage after Uniswap route | [tx](https://polygonscan.com/tx/0x337ad1819d41fc9325f40f559d40ebf85bef8cdc752029264583bfaef0d2a0c1) | External route added approximately 0.367156 SWT fee to the contract |
+| 2026-05-16 UTC | Test wallet | Post-test unwind — OKX route SWT → USDT0 | [tx](https://polygonscan.com/tx/0x351e023ed457be5321ed2ef21bc6c384100093af7cb0451001e2b9c206626cb1) | 3,000 SWT sell-side check; 35.692174 USDT0 received; 3 SWT fee transfer observed |
+| 2026-05-16 UTC | External route / arbitrage | External arbitrage after OKX route | [tx](https://polygonscan.com/tx/0xccc951ee6580a3e3294424545d22e4136b2d57f110d3258c19fb4a5f80634416) | External pool-balancing activity observed; not initiated by SWT test wallet |
+| 2026-05-16 UTC | Test wallet | Post-test unwind — OKX route SWT → USDT0 | [tx](https://polygonscan.com/tx/0xa23b640502396ae5ce4627ae4af976dfe502fdf612b5b4eedfb3f39f0382beaa) | 3,000 SWT sell-side check; 34.56124 USDT0 received; 3 SWT fee transfer observed |
+| 2026-05-16 UTC | External route / arbitrage | External arbitrage after OKX route | [tx](https://polygonscan.com/tx/0x0ec43e64a1ddd77bb001421b26f4385725944e894a89324de9851111e2531c226) | External pool-balancing activity observed; not initiated by SWT test wallet |
 | TBA | Creator/admin wallet | Founder top-up, if used | TBA | To be reported separately from protocol-generated USDT |
 | TBA | SWT contract / CharityAdmin | First charity transfer test | TBA | TBA |
 | TBA | Recipient / donation platform | Receipt or public confirmation, if available | TBA | TBA |
@@ -591,6 +588,44 @@ Observation:
 Sell-side fee behavior again depended on the actual SWT transfer path.
 
 The OKX route created a non-exempt SWT fee transfer. The direct Uniswap sell transferred SWT to the pool and did not add direct SWT fee. External arbitrage activity appeared after both sell-side checks, and one later route added additional SWT fee to the contract.
+
+### 2026-05-16 — Post-test unwind window 2
+
+A second post-test position unwind window was completed from the disclosed SWT Public Test Wallet.
+
+This activity is logged because it may affect fee accumulation, pool state, route behavior, and the next trigger cycle. It is not part of the initial trigger test cycle, which was completed on 2026-05-15.
+
+Sell-side checks:
+
+1. OKX route — SWT → USDT0  
+   - Tx: [OKX sell tx](https://polygonscan.com/tx/0x351e023ed457be5321ed2ef21bc6c384100093af7cb0451001e2b9c206626cb1)
+   - SWT input: 3,000 SWT
+   - USDT0 received by test wallet: 35.692174 USDT0
+   - Direct SWT fee observed: 3 SWT
+
+2. OKX route — SWT → USDT0  
+   - Tx: [OKX sell tx](https://polygonscan.com/tx/0xa23b640502396ae5ce4627ae4af976dfe502fdf612b5b4eedfb3f39f0382beaa)
+   - SWT input: 3,000 SWT
+   - USDT0 received by test wallet: 34.56124 USDT0
+   - Direct SWT fee observed: 3 SWT
+
+External route activity:
+
+- External arbitrage after first OKX sell: [tx](https://polygonscan.com/tx/0xccc951ee6580a3e3294424545d22e4136b2d57f110d3258c19fb4a5f80634416)
+- External arbitrage after second OKX sell: [tx](https://polygonscan.com/tx/0x0ec43e64a1ddd77bb001421b26f4385725944e894a89324de9851111e2531c226)
+- These external transactions were not initiated by the SWT test wallet.
+
+Observed state after window:
+
+- Accumulated SWT fee before window: 2.37 / 50 SWT
+- Accumulated SWT fee after window: 8.37 / 50 SWT
+- Observed fee delta: +6.00 SWT
+- USDT0 received by test wallet during this window: 70.253414 USDT0
+- Next trigger threshold reached: No
+
+Observation:
+
+The OKX route again produced fee-bearing SWT transfers. External arbitrage appeared after the sell-side checks, showing that pool state changes can lead to additional market activity outside the disclosed test wallet.
 
 ### 2026-05-18 — Final report
 
