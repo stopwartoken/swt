@@ -1,6 +1,6 @@
 # SWT Public Mechanics Test — May 2026
 
-Status: planned / live  
+Status: completed / final report pending
 Initial publication date: 2026-05-11  
 Planned test window: 2026-05-12 to 2026-05-15  
 Final report target: 2026-05-18  
@@ -79,11 +79,11 @@ The exact execution route will be documented from the transaction data.
 
 ## Live status
 
-Last updated: 2026-05-17 10:30 UTC
+Last updated: 2026-05-17 18:00 UTC
 
 | Field | Status |
 |---|---|
-| Test phase | Initial mechanics test completed; post-test position unwind / route observation active |
+| Test phase | Initial mechanics test completed; post-test position unwind completed; final report pending |
 | Network | Polygon |
 | Input assets used | POL / USDT |
 | Readable price reference | USDT/SWT pools |
@@ -95,7 +95,7 @@ Last updated: 2026-05-17 10:30 UTC
 | Public test wallet funding amount | 5,000 POL |
 | First POL → SWT swap tx | [first swap tx](https://polygonscan.com/tx/0xd4700f018cddfca2281d5c3f4ea7e2ce45facf16419e4fb0622a47a20918fd54) |
 | Latest SWT swap tx | [swap 24](https://polygonscan.com/tx/0x5ba54538d6789e2214da46aec74b98a774472730d78407402775dab35d000d9a) |
-| Post-trigger accumulated SWT fee | 13.37 / 50 SWT |
+| Post-trigger accumulated SWT fee | 18.49 / 50 SWT |
 | Trigger threshold | 50 SWT |
 | Next trigger threshold reached | No |
 | `triggerCharity()` status | Executed on 2026-05-15 |
@@ -105,9 +105,9 @@ Last updated: 2026-05-17 10:30 UTC
 | Trigger tx | [trigger tx](https://polygonscan.com/tx/0xf1a218b773c8cab739f121d61857989b9eb756205314310ca9fe280cc56e2371) |
 | USDT held on SWT contract after trigger | 0.66 USDT |
 | Protocol-generated USDT on SWT contract | 0.658925 USDT0 |
-| Post-test unwind status | Active |
-| Latest unwind tx | [OKX sell tx](https://polygonscan.com/tx/0x249325a5b134401f26b88a6dfdd52508476041944624a68ed4a3eb7c05cbae44) |
-| External route activity observed | Yes — arbitrage observed after sell-side checks |
+| Post-test unwind status | Completed |
+| Latest unwind tx | [final OKX sell tx](https://polygonscan.com/tx/0x56214fa3fc29651c90554810659bb04e4d4cef82508bddb05d5aa9b9d18b1457) |
+| External route activity observed | Yes — arbitrage observed during post-test unwind windows |
 | Founder-funded top-up | TBA / not included |
 | First charity transfer test | TBA |
 | Recipient | TBA |
@@ -249,11 +249,18 @@ The purpose is to document the fee path under real DEX conditions.
 | 2026-05-17 UTC | Test wallet | Post-test unwind — OKX route SWT → USDT0 | [tx](https://polygonscan.com/tx/0x249325a5b134401f26b88a6dfdd52508476041944624a68ed4a3eb7c05cbae44) | 2,500 SWT sell-side check; 27.28948 USDT0 received; 2.5 SWT fee transfer observed |
 | 2026-05-17 UTC | External route / arbitrage | External arbitrage after OKX route | [tx](https://polygonscan.com/tx/0x06527e3b055ddfe9db7f2a008bedb9f6b157f0391a61db12d83596bfe4339189) | External pool-balancing activity observed; not initiated by SWT test wallet |
 | 2026-05-17 UTC | External route / arbitrage | Additional external arbitrage after OKX route | [tx](https://polygonscan.com/tx/0x62baed2fd0d734b87a178e21578451c5a91d254c20629d687c7011709dc7ab0c) | Additional external pool-balancing activity observed; not initiated by SWT test wallet |
+| 2026-05-17 UTC | Test wallet | Final post-test unwind — OKX route SWT → USDT0 | [tx](https://polygonscan.com/tx/0x78d8be1fb6f29b9e10c71b54807ca0ba1edcc71f363933e803b31098eab88f96) | 1,500 SWT final sell; 16.059103 USDT0 received; 1.5 SWT fee transfer observed |
+| 2026-05-17 UTC | External route / arbitrage | External arbitrage after OKX route | [tx](https://polygonscan.com/tx/0xe72904ae4880edb67d19375edc732e6b5f93a1ae6b0f236904c57d3621788abe) | External pool-balancing activity observed; not initiated by SWT test wallet |
+| 2026-05-17 UTC | Test wallet | Final post-test unwind — OKX route SWT → USDT0 | [tx](https://polygonscan.com/tx/0x9f2586f56504aadcf024317cd93dfedf3419424ac2eebc75cc42bae55d1791c0) | 1,500 SWT final sell; 15.818543 USDT0 received; 1.5 SWT fee transfer observed |
+| 2026-05-17 UTC | External route / arbitrage | External arbitrage after OKX route | [tx](https://polygonscan.com/tx/0x08f373cc239dc757fa96b04df83ad08eeeabd0fcea92b0c137cf5caddbd29c8d) | External pool-balancing activity observed; not initiated by SWT test wallet |
+| 2026-05-17 UTC | Test wallet | Final post-test unwind — OKX route SWT → USDT0 | [tx](https://polygonscan.com/tx/0x7b90c5a61c604007902cfb8e5e414c0f0fc1250c110b11bea15d0b4b1908da30) | 1,500 SWT final sell; 15.582643 USDT0 received; 1.5 SWT fee transfer observed |
+| 2026-05-17 UTC | External route / arbitrage | External arbitrage after OKX route | [tx](https://polygonscan.com/tx/0xb042437136479741fa6d58ab02d623fccc13ec4be6c339bcb53bfa5336678d3a) | External pool-balancing activity observed; not initiated by SWT test wallet |
+| 2026-05-17 UTC | Test wallet | Final post-test unwind — OKX route SWT → USDT0 | [tx](https://polygonscan.com/tx/0x56214fa3fc29651c90554810659bb04e4d4cef82508bddb05d5aa9b9d18b1457) | 620.2237 SWT final sell; 6.380992 USDT0 received; 0.6202237 SWT fee transfer observed |
+| 2026-05-17 UTC | Test wallet | Post-test position unwind completed | Final unwind window | Disclosed test-wallet SWT position sold out; final unwind documented |
 | TBA | Creator/admin wallet | Founder top-up, if used | TBA | To be reported separately from protocol-generated USDT |
 | TBA | SWT contract / CharityAdmin | First charity transfer test | TBA | TBA |
 | TBA | Recipient / donation platform | Receipt or public confirmation, if available | TBA | TBA |
 | TBA | Test wallet | Position movement, if any | TBA | TBA |
-| TBA | Test wallet | Additional SWT route-comparison swaps, if any | TBA | TBA |
 | TBA | SWT contract | Threshold reached | TBA | 50 SWT fee threshold |
 
 ---
@@ -671,6 +678,64 @@ Observation:
 
 The OKX route again produced fee-bearing SWT transfers. External arbitrage appeared after the sell-side checks, showing continued pool response and route activity outside the disclosed test wallet.
 
+### 2026-05-17 — Post-test unwind window 4 / final unwind completed
+
+A fourth and final post-test position unwind window was completed from the disclosed SWT Public Test Wallet.
+
+This window sold the remaining SWT position acquired during the public mechanics test.
+
+This closes the test-wallet round trip and avoids leaving the test activity as a permanent artificial market state.
+
+Sell-side checks:
+
+1. OKX route — SWT → USDT0  
+   - Tx: [OKX sell tx](https://polygonscan.com/tx/0x78d8be1fb6f29b9e10c71b54807ca0ba1edcc71f363933e803b31098eab88f96)
+   - SWT input: 1,500 SWT
+   - USDT0 received by test wallet: 16.059103 USDT0
+   - Direct SWT fee observed: 1.5 SWT
+
+2. OKX route — SWT → USDT0  
+   - Tx: [OKX sell tx](https://polygonscan.com/tx/0x9f2586f56504aadcf024317cd93dfedf3419424ac2eebc75cc42bae55d1791c0)
+   - SWT input: 1,500 SWT
+   - USDT0 received by test wallet: 15.818543 USDT0
+   - Direct SWT fee observed: 1.5 SWT
+
+3. OKX route — SWT → USDT0  
+   - Tx: [OKX sell tx](https://polygonscan.com/tx/0x7b90c5a61c604007902cfb8e5e414c0f0fc1250c110b11bea15d0b4b1908da30)
+   - SWT input: 1,500 SWT
+   - USDT0 received by test wallet: 15.582643 USDT0
+   - Direct SWT fee observed: 1.5 SWT
+
+4. OKX route — SWT → USDT0  
+   - Tx: [OKX sell tx](https://polygonscan.com/tx/0x56214fa3fc29651c90554810659bb04e4d4cef82508bddb05d5aa9b9d18b1457)
+   - SWT input: 620.2237 SWT
+   - USDT0 received by test wallet: 6.380992 USDT0
+   - Direct SWT fee observed: 0.6202237 SWT
+
+External route activity:
+
+- External arbitrage after first OKX sell: [tx](https://polygonscan.com/tx/0xe72904ae4880edb67d19375edc732e6b5f93a1ae6b0f236904c57d3621788abe)
+- External arbitrage after second OKX sell: [tx](https://polygonscan.com/tx/0x08f373cc239dc757fa96b04df83ad08eeeabd0fcea92b0c137cf5caddbd29c8d)
+- External arbitrage after third OKX sell: [tx](https://polygonscan.com/tx/0xb042437136479741fa6d58ab02d623fccc13ec4be6c339bcb53bfa5336678d3a)
+- These external transactions were not initiated by the SWT test wallet.
+
+Observed state after window:
+
+- Accumulated SWT fee before window: 13.37 / 50 SWT
+- Accumulated SWT fee after window: 18.49 / 50 SWT
+- Observed fee delta from test-wallet sell txs: +5.1202 SWT
+- USDT0 received by test wallet during this window: 53.841281 USDT0
+- Next trigger threshold reached: No
+- Post-test unwind status: completed
+
+Observation:
+
+The OKX route again produced fee-bearing SWT transfers.
+
+Three external arbitrage transactions were observed during the final unwind window. These transactions reflected external pool-balancing behavior and were not initiated by the SWT test wallet.
+
+The disclosed test wallet has now unwound the SWT position acquired during the mechanics test. The remaining reporting work is the final summary and any later charity-transfer/top-up documentation, if performed.
+
 ### 2026-05-18 — Final report
 
 TBA
@@ -701,22 +766,23 @@ Expected final summary fields:
 - Funding source disclosed: Yes — SWT creator/admin wallet `0xBc122bE1b62f0B8718C9dC9918ce2cd7C160BA07`
 - Funding transaction documented: `0x82d222a13addfee7b157fe66c76307c6c5c989f9bc808ccdde8f0164ffa0b91d`
 - Public test wallet funding amount: 5,000 POL
-- POL → SWT execution path documented: TBA
-- Swap activity documented: Yes — 24 controlled SWT swaps + 1 POL → USDT preparation tx
+- POL → SWT execution path documented: Yes
+- Swap activity documented: Yes — 24 controlled SWT buy-side swaps + 1 POL → USDT preparation tx
 - SWT fee accumulation observed: Yes
 - 50 SWT threshold reached: Yes
-- `triggerCharity()` executed: No / pending
-- Trigger caller: TBA
-- Trigger tx: TBA
-- USDT held on SWT contract after trigger: TBA
-- Protocol-generated USDT amount: TBA
+- `triggerCharity()` executed: Yes
+- Trigger caller: disclosed SWT Public Test Wallet
+- Trigger tx: `0xf1a218b773c8cab739f121d61857989b9eb756205314310ca9fe280cc56e2371`
+- USDT held on SWT contract after trigger: 0.66 USDT0
+- Protocol-generated USDT amount: 0.658925 USDT0
 - Founder-funded top-up amount, if any: TBA
 - First charity transfer completed: TBA
 - Recipient / donation route: TBA
 - Transfer tx: TBA
 - Receipt / public confirmation: TBA
-- Test wallet position movement documented: TBA
-- Final state independently verifiable: TBA
+- Test wallet position movement documented: Yes — post-test unwind windows 1–4
+- Test wallet post-test SWT position: unwound
+- Final state independently verifiable: Yes, subject to final report completion
 
 ---
 
