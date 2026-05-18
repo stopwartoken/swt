@@ -1,10 +1,13 @@
 # SWT Public Mechanics Test — May 2026
 
-Status: completed / final report pending
+Status: completed — internal mechanics verified; final charity delivery path not completed
 Initial publication date: 2026-05-11  
 Planned test window: 2026-05-12 to 2026-05-15  
 Final report target: 2026-05-18  
 Network: Polygon
+Final report date: 2026-05-18  
+Campaign status: paused  
+Current contract status: live on-chain; not presented as a completed humanitarian delivery system  
 
 ---
 
@@ -15,6 +18,41 @@ The purpose of this public mechanics test is to document the full SWT path under
 POL input → routed SWT purchase → SWT fee accumulation → 50 SWT trigger threshold → permissionless `triggerCharity()` → USDT held on the SWT contract → first charity transfer path.
 
 The test is designed to make the mechanism observable through public transactions.
+
+---
+
+## Final report summary
+
+The May 2026 SWT Public Mechanics Test is now closed.
+
+The test confirmed that the internal on-chain mechanics of the deployed SWT contract can be observed under real transaction conditions:
+
+1. controlled swap activity produced SWT fee accumulation;
+2. the 50 SWT trigger threshold was reached;
+3. the public `triggerCharity()` window opened;
+4. no external trigger occurred during the observation window;
+5. `triggerCharity()` was executed from the disclosed SWT Public Test Wallet;
+6. protocol-generated USDT0 became visible on the SWT contract;
+7. the disclosed test-wallet SWT position was later unwound to avoid leaving the test activity as a permanent artificial market state.
+
+The test also exposed a critical limitation in the final delivery layer.
+
+The deployed SWT contract outputs the collected value as Polygon USDT/USDT0 on the SWT contract. During the final recipient-route review, SWT could not identify a verified nonprofit donation route that accepts this exact asset/network directly.
+
+Because of this, the first charity transfer path was not completed.
+
+SWT will not send funds to an unverifiable wallet, intermediary wallet, or discretionary conversion wallet just to make the test appear complete. That would weaken the verification standard the project was created to test.
+
+The conclusion is therefore split:
+
+- internal fee, threshold, trigger, and contract-held USDT mechanics worked as observed;
+- final verified nonprofit delivery did not work under the current contract architecture.
+
+As a result, active SWT promotion and campaign activity are paused.
+
+The token remains live on-chain, but the current deployed contract will not be presented as a completed humanitarian delivery system.
+
+Any future redesign or relaunch will be considered only after the locked liquidity becomes available on 2027-01-01 00:00 UTC.
 
 ---
 
@@ -79,11 +117,11 @@ The exact execution route will be documented from the transaction data.
 
 ## Live status
 
-Last updated: 2026-05-17 18:00 UTC
+Last updated: 2026-05-18 13:00 UTC
 
 | Field | Status |
 |---|---|
-| Test phase | Initial mechanics test completed; post-test position unwind completed; final report pending |
+| Test phase | Closed |
 | Network | Polygon |
 | Input assets used | POL / USDT |
 | Readable price reference | USDT/SWT pools |
@@ -94,24 +132,26 @@ Last updated: 2026-05-17 18:00 UTC
 | Funding tx | [0x82d222a13addfee7b157fe66c76307c6c5c989f9bc808ccdde8f0164ffa0b91d](https://polygonscan.com/tx/0x82d222a13addfee7b157fe66c76307c6c5c989f9bc808ccdde8f0164ffa0b91d) |
 | Public test wallet funding amount | 5,000 POL |
 | First POL → SWT swap tx | [first swap tx](https://polygonscan.com/tx/0xd4700f018cddfca2281d5c3f4ea7e2ce45facf16419e4fb0622a47a20918fd54) |
-| Latest SWT swap tx | [swap 24](https://polygonscan.com/tx/0x5ba54538d6789e2214da46aec74b98a774472730d78407402775dab35d000d9a) |
-| Post-trigger accumulated SWT fee | 18.49 / 50 SWT |
+| Final buy-side SWT swap tx | [swap 24](https://polygonscan.com/tx/0x5ba54538d6789e2214da46aec74b98a774472730d78407402775dab35d000d9a) |
 | Trigger threshold | 50 SWT |
-| Next trigger threshold reached | No |
-| `triggerCharity()` status | Executed on 2026-05-15 |
-| Public trigger window | Closed for this test cycle after team trigger execution |
+| Threshold reached | Yes |
 | Threshold tx | [THRESHOLD_SWAP](https://polygonscan.com/tx/0xbf10be180605e1d68fbfd4ab4c4cd59b103ece809003270516edcfd9029c0aea) |
+| `triggerCharity()` status | Executed on 2026-05-15 |
 | Trigger caller | Disclosed SWT Public Test Wallet |
 | Trigger tx | [trigger tx](https://polygonscan.com/tx/0xf1a218b773c8cab739f121d61857989b9eb756205314310ca9fe280cc56e2371) |
-| USDT held on SWT contract after trigger | 0.66 USDT |
-| Protocol-generated USDT on SWT contract | 0.658925 USDT0 |
+| Protocol-generated USDT0 visible on SWT contract | 0.658925 USDT0 |
+| Founder-funded top-up | Not executed |
+| First charity transfer test | Not completed |
+| Recipient | Not selected |
+| Reason charity transfer was not completed | No verified nonprofit route was identified that accepts Polygon USDT/USDT0 directly |
 | Post-test unwind status | Completed |
 | Latest unwind tx | [final OKX sell tx](https://polygonscan.com/tx/0x56214fa3fc29651c90554810659bb04e4d4cef82508bddb05d5aa9b9d18b1457) |
 | External route activity observed | Yes — arbitrage observed during post-test unwind windows |
-| Founder-funded top-up | TBA / not included |
-| First charity transfer test | TBA |
-| Recipient | TBA |
-| Final report status | Pending |
+| Post-unwind accumulated SWT fee | 18.49 / 50 SWT |
+| Next trigger threshold reached | No |
+| Campaign status | Paused |
+| Current contract status | Live on-chain; not promoted as a completed humanitarian delivery system |
+| Final report status | Published |
 
 ---
 
@@ -257,11 +297,11 @@ The purpose is to document the fee path under real DEX conditions.
 | 2026-05-17 UTC | External route / arbitrage | External arbitrage after OKX route | [tx](https://polygonscan.com/tx/0xb042437136479741fa6d58ab02d623fccc13ec4be6c339bcb53bfa5336678d3a) | External pool-balancing activity observed; not initiated by SWT test wallet |
 | 2026-05-17 UTC | Test wallet | Final post-test unwind — OKX route SWT → USDT0 | [tx](https://polygonscan.com/tx/0x56214fa3fc29651c90554810659bb04e4d4cef82508bddb05d5aa9b9d18b1457) | 620.2237 SWT final sell; 6.380992 USDT0 received; 0.6202237 SWT fee transfer observed |
 | 2026-05-17 UTC | Test wallet | Post-test position unwind completed | Final unwind window | Disclosed test-wallet SWT position sold out; final unwind documented |
-| TBA | Creator/admin wallet | Founder top-up, if used | TBA | To be reported separately from protocol-generated USDT |
-| TBA | SWT contract / CharityAdmin | First charity transfer test | TBA | TBA |
-| TBA | Recipient / donation platform | Receipt or public confirmation, if available | TBA | TBA |
-| TBA | Test wallet | Position movement, if any | TBA | TBA |
-| TBA | SWT contract | Threshold reached | TBA | 50 SWT fee threshold |
+| 2026-05-18 | SWT team | Final recipient-route review | Manual review | No verified nonprofit route was identified that accepts Polygon USDT/USDT0 directly |
+| 2026-05-18 | SWT team | First charity transfer test | Final report | Not completed; SWT will not send funds to an unverifiable wallet or discretionary conversion wallet |
+| 2026-05-18 | SWT team | Active campaign status | Final report | Active promotion paused |
+| 2026-05-18 | SWT team | Current contract status | Final report | Contract remains live on-chain, but will not be presented as a completed humanitarian delivery system |
+
 
 ---
 
@@ -793,3 +833,34 @@ This test does not ask anyone to believe the mechanism.
 It is designed so the mechanism can be followed through public transactions.
 
 Verification over claims.
+
+---
+
+## Final conclusion
+
+The May 2026 public mechanics test did not produce a completed end-to-end charity delivery.
+
+It did produce a clear result.
+
+The internal contract mechanics worked as observable on-chain infrastructure:
+
+- SWT fee accumulation occurred under routed execution paths;
+- the 50 SWT threshold was reached;
+- the public trigger window opened;
+- `triggerCharity()` executed;
+- 0.658925 USDT0 became visible on the SWT contract;
+- the disclosed test-wallet position was unwound and documented.
+
+However, the final verified donation path did not work.
+
+The current deployed contract can output the collected value only as Polygon USDT/USDT0. SWT could not identify a verified nonprofit donation route that accepts this exact asset/network directly.
+
+The project will not complete the report by sending funds to an unverifiable wallet or by introducing an additional discretionary conversion wallet. That would move the most important part of the process back into trust-based handling.
+
+This means the current SWT contract is not sufficient as a complete humanitarian delivery system.
+
+Active campaign activity is paused.
+
+The token remains live on-chain. The public records remain available. The test result will be used as a design constraint for any future architecture.
+
+Any future redesign or relaunch will be considered only after the locked liquidity becomes available on 2027-01-01 00:00 UTC.
